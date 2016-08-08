@@ -83,11 +83,24 @@
 		</footer>
 
   	</div>
-
+  	<style>
+		.win{
+			font-size: 20px;
+			line-height: 20px;
+			font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+		}
+  	</style>
 	<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="table.js"></script>
 	<script>
 
+        var m,
+        	ewc = '';
+        if(m = /\Wwindows nt ([\d.]+);/i.exec(navigator.userAgent)){
+            if(parseFloat(m[1])>8){
+            	ewc = ' class="win"'
+            }
+        }
 
 		var fams = ['','Smileys & People','Animals & Nature','Food & Drink','Activity','Travel & Places','Objects','Symbols','Flags'];
 		var fsta=0;
@@ -121,7 +134,7 @@
 				cont = '<tr>';
 
 				// OS
-				cont+='<td>'+table[i].e+'</td>';
+				cont+='<td'+ewc+'>'+table[i].e+'</td>';
 
 				// Apple
 				cont+='<td><img src="img/apple/'+ecp+'.png" width="20" height="20"></td>';
