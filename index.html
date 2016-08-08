@@ -67,6 +67,7 @@
 					<th title="iOS 10 / macOS 10.12">Apple</th>
 					<th title="Based on twemoji"><a href="https://github.com/twitter/twemoji" target="_blank">TweetDeck</a></th>
 					<th><a href="https://github.com/Ranks/emojione" target="_blank">Emoji One</a></th>
+					<th>Google</th>
 					<th title="Unicode Code Points">Unicode</th>
 					<th>Description</th>
 				</tr>
@@ -114,7 +115,7 @@
 				
 				if(table[i].f!=fsta){ //&& fsta<10
 					fsta++;
-					$('#emojis').append('<tr><th colspan="6" class="text-center">'+fams[fsta]+'</th></tr>');
+					$('#emojis').append('<tr><th colspan="7" class="text-center">'+fams[fsta]+'</th></tr>');
 				}				
 
 				cont = '<tr>';
@@ -132,7 +133,7 @@
 				cont+='<td><img src="img/emojione/'+ecp+'.png" width="20" height="20"></td>';
 
 				// Google
-				// cont+='<td><img src="img/google/'+ecp+'.png" width="20" height="20"></td>';
+				cont+='<td><img src="img/google/'+ecp+'.png" width="20" height="20"></td>';
 
 				// Code Point
 				cont+='<td>'+deco(cp(table[i].e))+'</td>';
