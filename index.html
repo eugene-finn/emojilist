@@ -24,56 +24,68 @@
   	<div class="container">
 	  	
 	  		<h3>Emoji List -  Based on iOS 10 and macOS 10.12</h3>
-				<p>This is an emoji list to compare different collections and see which emojis are missing, it is based on the available emojis in the latest Apple iOS emoji keyboard.</p>
+				<p>This is an emoji list to compare different collections and see which emojis are missing, it is based on the available emojis in the latest Apple iOS emoji keyboard, Info at the <a href="#info">end of the document</a>.</p>
+
+				<h4>Choose a collection</h4>
+				<ul class="col">
+					<li><span data-path="microsoft"><img src="img/microsoft/1f600.png" width="20" height="20"> Microsoft</span></li>
+					<li><span data-path="tweetdeck"><img src="img/tweetdeck/1f600.png" width="20" height="20"> Tweter / TweetDeck / Twemoji</span></li>
+					<li><span data-path="emojione"><img src="img/emojione/1f600.png" width="20" height="20"> Emoji One</span></li>
+					<li><span data-path="google"><img src="img/google/1f600.png" width="20" height="20"> Google / Android</span></li>
+				</ul>
+
+				<img src="img/notfound.png" width="20" height="20"> = Not found.
+
+
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th title="iOS 10 / macOS 10.12">Apple</th>
+						<th title="Native">OS Native</th>
+						<th>Selected Set</th>
+						<th title="Unicode Code Points">Unicode</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody id="emojis">
+					
+				</tbody>
+			</table>
+			<div id="info">
+				<h3>Info</h3>
 				<p>Here are the facts and reasons for doing things this way.</p>
 				<ol>
-				  <li>Yes, I acknowledge the Unicode consortium exists and have shared <a href="http://unicode.org/emoji/" target="_blank">a lot of information about emojis</a>… but…</li>
-				  <li> Trying to follow and understand the Unicode papers is a huge task, it is quite complex to understand <a href="http://www.unicode.org/Public/emoji/3.0//emoji-data.txt" target="_blank">how they are doing things</a>.</li>
-				  <li>Apple always has been  the first to adopt and make widely available an up-to-date emoji keyboard.</li>
-				  <li>Google and Microsoft are always behind in the race to release emoji keyboards, years behind.</li>
-				  <li>There is NO WAY a typical user could type an emoji without an emoji (software) keyboard.</li>
+					<li>Yes, I acknowledge the Unicode consortium exists and have shared <a href="http://unicode.org/emoji/" target="_blank">a lot of information about emojis</a>… but…</li>
+					<li> Trying to follow and understand the Unicode papers is a huge task, it is quite complex to understand <a href="http://www.unicode.org/Public/emoji/3.0//emoji-data.txt" target="_blank">how they are doing things</a>.</li>
+					<li>Apple always has been  the first to adopt and make widely available an up-to-date emoji keyboard.</li>
+					<li>Google and Microsoft are always behind in the race to release emoji keyboards, years behind.</li>
+					<li>There is NO WAY a typical user could type an emoji without an emoji (software) keyboard.</li>
 				</ol>
 				<p>So, in conclusion, Apple has the latest emojis a typical user can type online, no one is close to match Apple in that race, knowing these facts make me find a different approach than the typical geek would do, I don’t deal with complex white papers and painful regular expressions that try to cope with the wild emoji Unicode code points “sequences”…  I do things differently.</p>
 				<p>Using the emoji keyboard always running <a href="https://beta.apple.com/sp/betaprogram/" target="_blank">the latest iOS/macOS beta version</a>, I type each emoji and emoji variation by hand into a text file, I know, it is crazy. Then I <a href="https://github.com/rodrigopolo/minEmoji/tree/master/sprite_gen4" target="_blank">extract all PNG images from the Apple color font</a> available in the latest release, most of the time, a beta release. Then I match by hand one by one, each image to its emoji, so I can rename the file to its Unicode code point without the “<a href="https://en.wikipedia.org/wiki/Zero-width_joiner" target="_blank">Zero Width Joiner</a>” and the “<a href="http://www.fileformat.info/info/unicode/char/fe0f/index.htm" target="_blank">Variation Selector-16</a>” characters because I don’t want to deal with long filenames. It is impossible not to find an image that doesn’t match an emoji, then, using the Unicode emoji white paper I add the description of each emoji.</p>
 				<p>For the <a href="https://github.com/rodrigopolo/minEmoji" target="_blank">minEmoji project</a> I do an extra step. Using MongoDB I sort the emojis by length, the one that use more code points first, the one that use fewer code points at the end, then I create a regular expression based on this long list of emojis, the reason behind sorting the emojis by length is based on the way regular expressions work, so I first replace emojis that use a combination of emojis and then the one that use fewer elements, I know that by ignoring the “Zero Width Joiner” and the “Variation Selector-16” I’ll join emojis that were unintentionally together, but lets be honest, it is almost impossible that someone put those emojis together, and if someone put those emojis together just represent them as a single emoji.</p>
 				<p>With no further introduction, here is the emoji list updated on August 7, 2016 comparing the OS Native emoji as typed on an iOS 10 device, the macOS 10.12 images, TweetDeck images (Twemoji doesn’t share the latest emoji assets) Emoji One images, and Google/Android emojis found in <a href="https://github.com/googlei18n/noto-emoji" target="_blank">noto-emoji</a>.</p>
-			<ul>
-				<li>
-					<img src="img/notfound.png" width="20" height="20"> = Not found.
-				</li>
-				<li>
-					<strong>TweetDeck/Twemoji</strong><br>
-					They use the Unicode Character 'Zero Width Joiner' (U+200D) and Unicode Character 'Variation Selector-16' (U+FE0F) in their file names, I have changed this file names to fit this list.<br>
-					They do not encode the ©️ and ®️ emojis, but they have the image assets, I have added the images to the list.<br>
-				</li>
-				<li>
-					<strong>Emoji One</strong><br>
-					They use zero leading file names, I removed those zeros to fit this list.<br>
-				</li>
-				<li>
-					<strong>Google</strong><br>
-					The same as TweetDeck/Twemoji and Emoji One.
-				</li>
-				<li>
-					<strong>Want to contribute?</strong><br>
-					<a href="http://rodrigopolo.com/contact">Sugestions</a><br>
-					<a href="http://rodrigopolo.com/about/wp-stream-video/donate">Donations?</a>
-				</li>
-			</ul>
-
-			<table id="emojis" class="table table-condensed">
-				<tr>
-					<th title="Native">OS Native</th>
-					<th title="iOS 10 / macOS 10.12">Apple</th>
-					<th title="Windows 10 Anniversary Update">Microsoft</th>
-					<th title="Based on twemoji"><a href="https://github.com/twitter/twemoji" target="_blank">TweetDeck</a></th>
-					<th><a href="https://github.com/Ranks/emojione" target="_blank">Emoji One</a></th>
-					<th>Google</th>
-					<th title="Unicode Code Points">Unicode</th>
-					<th>Description</th>
-				</tr>
-			</table>
-
+				<ul>
+					<li>
+						<strong>TweetDeck/Twemoji</strong>: They use the Unicode Character 'Zero Width Joiner' (U+200D) and Unicode Character 'Variation Selector-16' (U+FE0F) in their file names, I have changed this file names to fit this list.<br>
+						They do not encode the ©️ and ®️ emojis, but they have the image assets, I have added the images to the list.<br>
+					</li>
+					<li>
+						<strong>Emoji One</strong>: They use zero leading file names, I removed those zeros to fit this list.<br>
+					</li>
+					<li>
+						<strong>Google</strong>: The same as TweetDeck/Twemoji and Emoji One.
+					</li>
+					<li>
+						<strong>Microsoft</strong>: Font converted to PNG images.
+					</li>
+					<li>
+						<strong>Want to contribute?</strong><br>
+						<a href="http://rodrigopolo.com/contact">Sugestions</a><br>
+						<a href="http://rodrigopolo.com/about/wp-stream-video/donate">Donations?</a>
+					</li>
+				</ul>
+			</div>
 
 
 		<hr>
@@ -85,6 +97,9 @@
 
   	</div>
   	<style>
+  		.col span{
+  			cursor: pointer;
+  		}
 		.win{
 			font-size: 20px;
 			line-height: 20px;
@@ -92,90 +107,7 @@
 		}
   	</style>
 	<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="table.js"></script>
-	<script>
-
-        var m,
-        	ewc = '';
-        if(m = /\Wwindows nt ([\d.]+);/i.exec(navigator.userAgent)){
-            if(parseFloat(m[1])>8){
-            	ewc = ' class="win"'
-            }
-        }
-
-		var fams = ['','Smileys & People','Animals & Nature','Food & Drink','Activity','Travel & Places','Objects','Symbols','Flags'];
-		var fsta=0;
-
-		function cp(t) {
-			for (var n = [], r = 0, o = 0, h = 0; h < t.length;) r = t.charCodeAt(h++), o ? (n.push((65536 + (o - 55296 << 10) + (r - 56320)).toString(16)), o = 0) : r >= 55296 && 56319 >= r ? o = r : n.push(r.toString(16));
-			return n.join("-");
-		}
-
-		function deco(s){
-			var nar = s.split('-');
-			for (var i = 0; i < nar.length; i++) {
-				nar[i] = 'U+'+nar[i];
-			}
-			return nar.join(' ').toUpperCase();
-		}
-
-		// onLoad
-		$(function(){
-			var cont,
-				ecp;
-
-			for (var i = 0; i < table.length; i++) {
-				ecp = cp(table[i].e.replace(/\ufe0f|\u200d/gm, ''));
-				
-				if(table[i].f!=fsta){ //&& fsta<10
-					fsta++;
-					$('#emojis').append('<tr><th colspan="7" class="text-center">'+fams[fsta]+'</th></tr>');
-				}				
-
-				cont = '<tr>';
-
-				// OS
-				cont+='<td'+ewc+'>'+table[i].e+'</td>';
-
-				// Apple
-				cont+='<td><img src="img/apple/'+ecp+'.png" width="20" height="20"></td>';
-
-				// Microsoft
-				cont+='<td><img src="img/microsoft/'+ecp+'.png" width="20" height="20"></td>';
-
-				// TweetDeck
-				cont+='<td><img src="img/tweetdeck/'+ecp+'.png" width="20" height="20"></td>';
-
-				// Emoji One
-				cont+='<td><img src="img/emojione/'+ecp+'.png" width="20" height="20"></td>';
-
-				// Google
-				cont+='<td><img src="img/google/'+ecp+'.png" width="20" height="20"></td>';
-
-				// Code Point
-				cont+='<td>'+deco(cp(table[i].e))+'</td>';
-
-				// Description
-				cont+='<td>'+table[i].d+'</td>';
-					
-
-				cont+='</tr>';
-
-				$('#emojis').append(cont);
-			};
-
-		});
-
-	</script>
-	<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-389407-1']);
-	_gaq.push(['_trackPageview']);
-	(function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-	</script>
+	<script src="js/table.js"></script>
+	<script src="js/main.js"></script>
   </body>
 </html>
