@@ -42,7 +42,7 @@ function drawEmojis(){
 		
 		if(table[i].f!=fsta){ //&& fsta<10
 			fsta++;
-			$('#emojis').append('<tr><th colspan="4" class="text-center">'+fams[fsta]+'</th></tr>');
+			$('#emojis').append('<tr><th colspan="5" class="text-center">'+fams[fsta]+'</th></tr>');
 		}				
 
 		cont = '<tr>';
