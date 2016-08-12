@@ -1,10 +1,10 @@
 var m,
 	path = 'microsoft',
-	ewc = '';
+	ewc = ' class="other"';
 
 if(m = /\Wwindows nt ([\d.]+);/i.exec(navigator.userAgent)){
 	if(parseFloat(m[1])>8){
-		ewc = ' class="win"'
+		ewc = ' class="other win"'
 	}
 }
 
