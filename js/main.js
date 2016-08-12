@@ -48,13 +48,13 @@ function drawEmojis(){
 		cont = '<tr>';
 
 		// Apple
-		cont+='<td><img src="img/apple/'+ecp+'.png" width="20" height="20"></td>';
+		cont+='<td><img src="img/apple/'+ecp+'.png" width="40" height="40"></td>';
 
 		// OS
 		cont+='<td'+ewc+'>'+table[i].e+'</td>';
 
 		// Selected Set
-		cont+='<td><img src="img/'+path+'/'+ecp+'.png" width="20" height="20"></td>';
+		cont+='<td><img src="img/'+path+'/'+ecp+'.png" width="40" height="40"></td>';
 
 		// Code Point
 		cont+='<td>'+deco(cp(table[i].e))+'</td>';
