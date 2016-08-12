@@ -29,7 +29,7 @@
 				<h4>Choose a collection</h4>
 				<ul class="col">
 					<li><span data-path="microsoft"><img src="img/microsoft/1f600.png" width="20" height="20"> Microsoft</span></li>
-					<li><span data-path="tweetdeck"><img src="img/tweetdeck/1f600.png" width="20" height="20"> Tweter / TweetDeck / Twemoji</span></li>
+					<li><span data-path="twemoji"><img src="img/twemoji/1f600.png" width="20" height="20"> Tweter / TweetDeck / Twemoji</span></li>
 					<li><span data-path="emojione"><img src="img/emojione/1f600.png" width="20" height="20"> Emoji One</span></li>
 					<li><span data-path="google"><img src="img/google/1f600.png" width="20" height="20"> Google / Android</span></li>
 				</ul>
@@ -64,17 +64,17 @@
 				<p>So, in conclusion, Apple has the latest emojis a typical user can type online, no one is close to match Apple in that race, knowing these facts make me find a different approach than the typical geek would do, I don’t deal with complex white papers and painful regular expressions that try to cope with the wild emoji Unicode code points “sequences”…  I do things differently.</p>
 				<p>Using the emoji keyboard always running <a href="https://beta.apple.com/sp/betaprogram/" target="_blank">the latest iOS/macOS beta version</a>, I type each emoji and emoji variation by hand into a text file, I know, it is crazy. Then I <a href="https://github.com/rodrigopolo/minEmoji/tree/master/sprite_gen4" target="_blank">extract all PNG images from the Apple color font</a> available in the latest release, most of the time, a beta release. Then I match by hand one by one, each image to its emoji, so I can rename the file to its Unicode code point without the “<a href="https://en.wikipedia.org/wiki/Zero-width_joiner" target="_blank">Zero Width Joiner</a>” and the “<a href="http://www.fileformat.info/info/unicode/char/fe0f/index.htm" target="_blank">Variation Selector-16</a>” characters because I don’t want to deal with long filenames. It is impossible not to find an image that doesn’t match an emoji, then, using the Unicode emoji white paper I add the description of each emoji.</p>
 				<p>For the <a href="https://github.com/rodrigopolo/minEmoji" target="_blank">minEmoji project</a> I do an extra step. Using MongoDB I sort the emojis by length, the one that use more code points first, the one that use fewer code points at the end, then I create a regular expression based on this long list of emojis, the reason behind sorting the emojis by length is based on the way regular expressions work, so I first replace emojis that use a combination of emojis and then the one that use fewer elements, I know that by ignoring the “Zero Width Joiner” and the “Variation Selector-16” I’ll join emojis that were unintentionally together, but lets be honest, it is almost impossible that someone put those emojis together, and if someone put those emojis together just represent them as a single emoji.</p>
-				<p>With no further introduction, here is the emoji list updated on August 7, 2016 comparing the OS Native emoji as typed on an iOS 10 device, the macOS 10.12 images, TweetDeck images (Twemoji doesn’t share the latest emoji assets) Emoji One images, and Google/Android emojis found in <a href="https://github.com/googlei18n/noto-emoji" target="_blank">noto-emoji</a>.</p>
+				<p>With no further introduction, here is the emoji list updated on August 7, 2016 comparing the OS Native emoji as typed on an iOS 10 device, the macOS 10.12 images, Twemoji, Emoji One images, and Google/Android emojis found in <a href="https://github.com/googlei18n/noto-emoji" target="_blank">noto-emoji</a>.</p>
 				<ul>
 					<li>
-						<strong>TweetDeck/Twemoji</strong>: They use the Unicode Character 'Zero Width Joiner' (U+200D) and Unicode Character 'Variation Selector-16' (U+FE0F) in their file names, I have changed this file names to fit this list.<br>
+						<strong>Twemoji</strong>: They use the Unicode Character 'Zero Width Joiner' (U+200D) and Unicode Character 'Variation Selector-16' (U+FE0F) in their file names, I have changed this file names to fit this list.<br>
 						They do not encode the ©️ and ®️ emojis, but they have the image assets, I have added the images to the list.<br>
 					</li>
 					<li>
 						<strong>Emoji One</strong>: They use zero leading file names, I removed those zeros to fit this list.<br>
 					</li>
 					<li>
-						<strong>Google</strong>: The same as TweetDeck/Twemoji and Emoji One.
+						<strong>Google</strong>: The same as Twemoji and Emoji One.
 					</li>
 					<li>
 						<strong>Microsoft</strong>: Font converted to PNG images.
